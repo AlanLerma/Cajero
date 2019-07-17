@@ -1,0 +1,11 @@
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\bin\WcfService1.dll.config
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\bin\WcfService1.dll
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\bin\WcfService1.pdb
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\obj\Debug\WcfService1.csprojAssemblyReference.cache
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\obj\Debug\WcfService1.csproj.CoreCompileInputs.cache
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\obj\Debug\WcfService1.dll
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\obj\Debug\WcfService1.pdb
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\bin\Cajero automatico.exe
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\bin\Cajero automatico.pdb
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\bin\Cajero automatico.exe.config
+C:\Users\ALA_A\source\repos\Cajero automatico\WcfService1\obj\Debug\WcfService1.csproj.CopyComplete
