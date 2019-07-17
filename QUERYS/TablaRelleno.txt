@@ -1,0 +1,7 @@
+INSERT INTO cliente (Id, Customer, Account, Debt, Paid, Datee)
+VALUES 
+(1, 'JohnWick', 1234567890, 12343,12, GETDATE()),
+(2 , 'Komal Holman', 569256232,2333,123, GETDATE()),
+(3, 'Kady Lord', 999999999, 2312,2331, GETDATE()),
+(4 , 'Kendrick Callahan', 0000000000,4325,3432, GETDATE()),
+(5, 'Yousef Pierce', 123344542, 1233.2,12, GETDATE()),
