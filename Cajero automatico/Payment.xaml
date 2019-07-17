@@ -1,0 +1,112 @@
+﻿<Window x:Class="Cajero_automatico.Payment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cajero_automatico"
+        mc:Ignorable="d"
+        Title="Payment" Height="440" Width="622">
+    <Grid Margin="10,0,-39,-5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="633*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Deuda:" HorizontalAlignment="Center" Margin="35,36,495,0" VerticalAlignment="Top" FontSize="30" Height="50" Width="103"/>
+        <Label Content="Depositado:" HorizontalAlignment="Center" Margin="200,36,255,0"  VerticalAlignment="Top" FontSize="30" Width="178" Height="50" RenderTransformOrigin="0.697,0.5"/>
+        <Label Content="Restante:" HorizontalAlignment="Center" Margin="409,36,-60,0" VerticalAlignment="Top" FontSize="30" Width="294" Height="50" Grid.ColumnSpan="3"/>
+        <Button x:Name="cancelar" Content="&lt;Cancelar" HorizontalAlignment="Left" Margin="30,337,0,0" VerticalAlignment="Top" Width="144" Height="50" FontSize="25" Click="Cancelar_Click"/>
+        <Button x:Name="Abonar" Content="Abonar&gt;" HorizontalAlignment="Left" Margin="421,337,0,0" VerticalAlignment="Top" Width="144" Height="50" FontSize="25" Click="Cancelar_Click"/>
+
+
+        <Label x:Name="Depositado_blue" Content="Dep" Foreground="Blue" FontSize="25" HorizontalAlignment="Left" Margin="200,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.75,-0.442" Height="43" Width="55"/>
+        <Label x:Name="Deuda_blue" Content="Deu" Foreground="Blue" FontSize="25" HorizontalAlignment="Left" Margin="35,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.75,-0.442" Height="43" Width="119"/>
+        <Label x:Name="Restante_blue" Content="Res" Foreground="Blue" FontSize="25" HorizontalAlignment="Left" Margin="405,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.75,-0.442" Height="43" Width="102"/>
+
+
+        <Button x:Name="quin" Content="$500" HorizontalAlignment="Left" Margin="106,154,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click" Height="52"/>
+        <Button x:Name="dosc" Content="$200" HorizontalAlignment="Left" Margin="185,154,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click1" Height="52"/>
+        <Button x:Name="cien" Content="$100" HorizontalAlignment="Left" Margin="262,154,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click2" Height="52"/>
+        <Button x:Name="cinc" Content="$50" HorizontalAlignment="Left" Margin="339,154,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click3" Height="52"/>
+        <Button x:Name="vein" Content="$20" HorizontalAlignment="Left" Margin="421,154,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click4" Height="52"/>
+
+
+
+        <Button Margin="111,239,487,127" Click="Button_Click_1" Content="$10">
+            <Button.Template>
+                <ControlTemplate TargetType="Button" x:Name="diez">
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="1" HorizontalAlignment="Left" Width="40" Fill="LightGray">
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
+        <Button Margin="190,239,408,127" Click="Button_Click_2" Content="$5">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="1" HorizontalAlignment="Left" Width="40" Fill="LightGray">
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
+        <Button Margin="267,238,331,128" Click="Button_Click_3" Content="$2">
+            <Button.Template>
+                <ControlTemplate TargetType="Button" >
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="1" HorizontalAlignment="Left" Width="40" Fill="LightGray">
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
+        <Button Margin="344,238,254,128" Click="Button_Click_4" Content="$1">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="1" HorizontalAlignment="Left" Width="43" Fill="LightGray">
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button Margin="421,238,172,127" Click="Button_Click_5" Content="$0.50" RenderTransformOrigin="6.86,0.186">
+            <Button.Template>
+                <ControlTemplate TargetType="Button" >
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="1" HorizontalAlignment="Left" Width="43" Fill="LightGray">
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
+
+
+    </Grid>
+</Window>
