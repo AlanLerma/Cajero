@@ -1,0 +1,21 @@
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\bin\Debug\Cajero automatico.exe.config
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\bin\Debug\Cajero automatico.exe
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\bin\Debug\Cajero automatico.pdb
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Cajero automatico.csprojAssemblyReference.cache
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\MainWindow.g.cs
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\App.g.cs
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Cajero automatico_MarkupCompile.cache
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Cajero automatico_MarkupCompile.lref
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\MainWindow.baml
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Cajero automatico.g.resources
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Cajero_automatico.Properties.Resources.resources
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Cajero automatico.csproj.GenerateResource.cache
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Cajero automatico.csproj.CoreCompileInputs.cache
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Cajero automatico.exe
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Cajero automatico.pdb
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Numero.g.cs
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Numero.baml
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Balance.g.cs
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Balance.baml
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Payment.g.cs
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Payment.baml
