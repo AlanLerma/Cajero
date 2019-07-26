@@ -1,7 +1,7 @@
 USE [JonWick]
 GO
 
-/****** Object:  Table [dbo].[cliente]    Script Date: 17/7/2019 08:54:47 ******/
+/****** Object:  Table [dbo].[cliente]    Script Date: 26/7/2019 15:24:49 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,13 +9,13 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[cliente](
-	[Id] [int] NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Customer] [varchar](50) NULL,
 	[Account] [varchar](10) NULL,
 	[Debt] [float] NULL,
 	[Paid] [float] NULL,
 	[Datee] [datetime] NULL,
- CONSTRAINT [PK_cliente] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Table] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
