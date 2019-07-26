@@ -19,3 +19,10 @@ C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Balanc
 C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Balance.baml
 C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Payment.g.cs
 C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Payment.baml
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\bin\Debug\DeviceLibrary.dll
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\bin\Debug\RestSharp.dll
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\bin\Debug\DeviceLibrary.pdb
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\bin\Debug\RestSharp.xml
+C:\Users\ALA_A\source\repos\Cajero automatico\Cajero automatico\obj\Debug\Cajero automatico.csproj.CopyComplete
