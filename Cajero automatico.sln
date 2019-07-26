@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebAppli
 		{B993A5B3-3578-421F-819E-D1AA2093C002} = {B993A5B3-3578-421F-819E-D1AA2093C002}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceLibrary", "..\..\..\Desktop\Liibreria\libreria-simulacion-dispositivos-master\DeviceLibrary.csproj", "{5D9E1C57-5BD3-4959-8F71-0D01AF33EB37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{958906B7-7715-4AAC-AABF-F8ABD91CFB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{958906B7-7715-4AAC-AABF-F8ABD91CFB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{958906B7-7715-4AAC-AABF-F8ABD91CFB52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D9E1C57-5BD3-4959-8F71-0D01AF33EB37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D9E1C57-5BD3-4959-8F71-0D01AF33EB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D9E1C57-5BD3-4959-8F71-0D01AF33EB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D9E1C57-5BD3-4959-8F71-0D01AF33EB37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
