@@ -30,21 +30,35 @@ namespace Cajero_automatico
         DeviceLibrary.DeviceLibrary dv = new DeviceLibrary.DeviceLibrary();
 
 
-        DeviceLibrary.Models.Document centavo = new DeviceLibrary.Models.Document(0.5, DeviceLibrary.Models.Enums.DocumentType.Coin, 100);
-        DeviceLibrary.Models.Document uno = new DeviceLibrary.Models.Document(1, DeviceLibrary.Models.Enums.DocumentType.Coin, 100);
-        DeviceLibrary.Models.Document dos = new DeviceLibrary.Models.Document(2, DeviceLibrary.Models.Enums.DocumentType.Coin, 100);
-        DeviceLibrary.Models.Document cinco = new DeviceLibrary.Models.Document(5, DeviceLibrary.Models.Enums.DocumentType.Coin, 100);
-        DeviceLibrary.Models.Document diez = new DeviceLibrary.Models.Document(10, DeviceLibrary.Models.Enums.DocumentType.Coin, 100);
+        DeviceLibrary.Models.Document centavo = new DeviceLibrary.Models.Document((decimal)(0.5), DeviceLibrary.Models.Enums.DocumentType.Coin, 100+ VariablesGlobales.c_centavo);
+        DeviceLibrary.Models.Document uno = new DeviceLibrary.Models.Document(1, DeviceLibrary.Models.Enums.DocumentType.Coin, 100 + VariablesGlobales.c_uno);
+        DeviceLibrary.Models.Document dos = new DeviceLibrary.Models.Document(2, DeviceLibrary.Models.Enums.DocumentType.Coin, 100+VariablesGlobales.c_dos);
+        DeviceLibrary.Models.Document cinco = new DeviceLibrary.Models.Document(5, DeviceLibrary.Models.Enums.DocumentType.Coin, 100+VariablesGlobales.c_cinco);
+        DeviceLibrary.Models.Document diez = new DeviceLibrary.Models.Document(10, DeviceLibrary.Models.Enums.DocumentType.Coin, 100+ VariablesGlobales.c_diez);
 
-        DeviceLibrary.Models.Document veinte = new DeviceLibrary.Models.Document(500, DeviceLibrary.Models.Enums.DocumentType.Bill, 100);
-        DeviceLibrary.Models.Document cincuenta = new DeviceLibrary.Models.Document(500, DeviceLibrary.Models.Enums.DocumentType.Bill, 100);
-        DeviceLibrary.Models.Document doscientos = new DeviceLibrary.Models.Document(500, DeviceLibrary.Models.Enums.DocumentType.Bill, 100);
-        DeviceLibrary.Models.Document cienb = new DeviceLibrary.Models.Document(500, DeviceLibrary.Models.Enums.DocumentType.Bill, 100);
-        DeviceLibrary.Models.Document quinentos = new DeviceLibrary.Models.Document(500, DeviceLibrary.Models.Enums.DocumentType.Bill, 100);
+        DeviceLibrary.Models.Document veinte = new DeviceLibrary.Models.Document(20, DeviceLibrary.Models.Enums.DocumentType.Bill, 100+ VariablesGlobales.c_veinte);
+        DeviceLibrary.Models.Document cincuenta = new DeviceLibrary.Models.Document(50, DeviceLibrary.Models.Enums.DocumentType.Bill, 100+ VariablesGlobales.c_cincuenta);
+        DeviceLibrary.Models.Document doscientos = new DeviceLibrary.Models.Document(200, DeviceLibrary.Models.Enums.DocumentType.Bill, 100+ VariablesGlobales.c_doscientos);
+        DeviceLibrary.Models.Document cienb = new DeviceLibrary.Models.Document(100, DeviceLibrary.Models.Enums.DocumentType.Bill, 100+ VariablesGlobales.c_cien);
+        DeviceLibrary.Models.Document quinentos = new DeviceLibrary.Models.Document(500, DeviceLibrary.Models.Enums.DocumentType.Bill, 100+VariablesGlobales.c_quinientos);
+
+        
 
         public Payment()
         {
             dv.Open();
+            VariablesGlobales.c_centavo = 0;
+            VariablesGlobales.c_centavo = 0;
+            VariablesGlobales.c_dos =0;
+           VariablesGlobales.c_cinco = 0;
+            VariablesGlobales.c_diez = 0;
+
+            VariablesGlobales.c_veinte = 0;
+            VariablesGlobales.c_cincuenta = 0;
+            VariablesGlobales.c_doscientos = 0;
+            VariablesGlobales.c_cien = 0;
+            VariablesGlobales.c_quinientos = 0;
+
 
             InitializeComponent();
             VariablesGlobales.ingreso = 0.0;
@@ -64,19 +78,16 @@ namespace Cajero_automatico
             VariablesGlobales.deuda = Double.Parse(debt);
             VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
 
+            dv.AcceptedDocument += Dv_AcceptedDocument;
         }
+
+        
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
 
-            //Query pasada
-            //cmd.CommandText = @"UPDATE cliente
-            //                    SET Debt = @deuda, Paid = @pagado, Datee = GETDATE()
-            //                    WHERE account = @cuenta";
-
-
-            cmd.CommandText = @" INSERT INTO cliente(id, Customer, Account, Debt, Paid, Datee)
-            VALUES(1 + (select max(id) from cliente) ,@usuario, @cuenta, @deuda, @pagado, GETDATE())";
+            cmd.CommandText = @" INSERT INTO cliente (Customer, Account, Debt, Paid, Datee)
+            VALUES  (@usuario, @cuenta, @deuda, @pagado, GETDATE())";
 
 
             cmd.CommandType = System.Data.CommandType.Text;
@@ -133,7 +144,7 @@ namespace Cajero_automatico
 
             if (VariablesGlobales.restante <= 0)
             {
-                dv.Dispense(VariablesGlobales.restante * -1);
+                dv.Dispense((decimal)(VariablesGlobales.restante) * -1);
                 MessageBox.Show("Pago realizado con exito, su cambio es de: $"+ VariablesGlobales.restante*-1);
 
             }
@@ -144,6 +155,8 @@ namespace Cajero_automatico
 
             MainWindow subwindow = new MainWindow();
             subwindow.Show();
+            dv.Disable();
+            dv.Close();
             this.Close();
 
 
@@ -151,145 +164,118 @@ namespace Cajero_automatico
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            
+            VariablesGlobales.c_quinientos += 1;
             dv.Enable();
             dv.SimulateInsertion(quinentos);
-            VariablesGlobales.ingreso += 500;
-            Depositado_blue.Content = "$" + VariablesGlobales.ingreso;
+           
+     
+        }
+
+        private void Dv_AcceptedDocument(DeviceLibrary.Models.Document obj)
+        {
+            double suma = 
+            VariablesGlobales.c_centavo*0.5+
+            VariablesGlobales.c_uno +
+            VariablesGlobales.c_dos*2 +
+            VariablesGlobales.c_cinco*5 +
+            VariablesGlobales.c_diez*10 +
+            VariablesGlobales.c_veinte*20 +
+            VariablesGlobales.c_cincuenta*50+ 
+            VariablesGlobales.c_doscientos*200 +
+            VariablesGlobales.c_cien*100 +
+            VariablesGlobales.c_quinientos*500;
+            VariablesGlobales.ingreso = suma;
+            
+            Depositado_blue.Content = "$"+VariablesGlobales.ingreso;
             VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
-            Restante_blue.Content = "$" + VariablesGlobales.restante.ToString();
             if (VariablesGlobales.restante <= 0)
             {
-                Restante_blue.Content = "$0";
+                Restante_blue.Content = "$"+0;
             }
-
+            else
+            {
+                Restante_blue.Content = "$"+ VariablesGlobales.restante;
+            }
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            VariablesGlobales.c_diez += 1;
             dv.Enable();
             dv.SimulateInsertion(diez);
-            VariablesGlobales.ingreso += 10;
-            Depositado_blue.Content = "$" + VariablesGlobales.ingreso;
-            VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
-            Restante_blue.Content = "$" + VariablesGlobales.restante.ToString();
-            if (VariablesGlobales.restante <= 0)
-            {
-                Restante_blue.Content = "$0";
-            }
+            
+
         }
 
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
+            VariablesGlobales.c_doscientos += 1;
             dv.Enable();
             dv.SimulateInsertion(doscientos);
-            VariablesGlobales.ingreso += 200;
-            Depositado_blue.Content = "$" + VariablesGlobales.ingreso;
-            VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
-            Restante_blue.Content = "$" + VariablesGlobales.restante.ToString();
-            if (VariablesGlobales.restante <= 0)
-            {
-                Restante_blue.Content = "$0";
-            }
+           
         }
 
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
+            VariablesGlobales.c_cien += 1;
             dv.Enable();
             dv.SimulateInsertion(cienb);
-            VariablesGlobales.ingreso += 100;
-            Depositado_blue.Content = "$" + VariablesGlobales.ingreso;
-            VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
-            Restante_blue.Content = "$" + VariablesGlobales.restante.ToString();
-            if (VariablesGlobales.restante <= 0)
-            {
-                Restante_blue.Content = "$0";
-            }
+          
+
         }
 
         private void Button_Click3(object sender, RoutedEventArgs e)
         {
+            VariablesGlobales.c_cincuenta += 1;
             dv.Enable();
             dv.SimulateInsertion(cincuenta);
-            VariablesGlobales.ingreso += 50;
-            Depositado_blue.Content = "$" + VariablesGlobales.ingreso;
-            VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
-            Restante_blue.Content = "$" + VariablesGlobales.restante.ToString();
-            if (VariablesGlobales.restante <= 0)
-            {
-                Restante_blue.Content = "$0";
-            }
+           
+
         }
 
         private void Button_Click4(object sender, RoutedEventArgs e)
         {
+            VariablesGlobales.c_veinte += 1;
             dv.Enable();
             dv.SimulateInsertion(veinte);
-            VariablesGlobales.ingreso += 20;
-            Depositado_blue.Content = "$" + VariablesGlobales.ingreso;
-            VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
-            Restante_blue.Content = "$" + VariablesGlobales.restante.ToString();
-            if (VariablesGlobales.restante <= 0)
-            {
-                Restante_blue.Content = "$0";
-            }
+            
+
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            VariablesGlobales.c_cinco += 1;
             dv.Enable();
-            dv.SimulateInsertion(quinentos);
-            VariablesGlobales.ingreso += 500;
-            Depositado_blue.Content = "$" + VariablesGlobales.ingreso;
-            VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
-            Restante_blue.Content = "$" + VariablesGlobales.restante.ToString();
-            if (VariablesGlobales.restante <= 0)
-            {
-                Restante_blue.Content = "$0";
-            }
+            dv.SimulateInsertion(cinco);
+           
+            
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            VariablesGlobales.c_dos += 1;
             dv.Enable();
             dv.SimulateInsertion(dos);
-            VariablesGlobales.ingreso += 2;
-            Depositado_blue.Content = "$" + VariablesGlobales.ingreso;
-            VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
-            Restante_blue.Content = "$" + VariablesGlobales.restante.ToString();
-            if (VariablesGlobales.restante <= 0)
-            {
-                Restante_blue.Content = "$0";
-            }
+          
+
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
+            VariablesGlobales.c_uno += 1;
             dv.Enable();
             dv.SimulateInsertion(uno);
-            VariablesGlobales.ingreso += 1;
-            Depositado_blue.Content = "$" + VariablesGlobales.ingreso;
-            VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
-            Restante_blue.Content = "$" + VariablesGlobales.restante.ToString();
-            if (VariablesGlobales.restante <= 0)
-            {
-                Restante_blue.Content = "$0";
-            }
+           
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
+            VariablesGlobales.c_centavo += 1;
             dv.Enable();
             dv.SimulateInsertion(centavo);
-            VariablesGlobales.ingreso += .5;
-            Depositado_blue.Content = "$" + VariablesGlobales.ingreso;
-            VariablesGlobales.restante = VariablesGlobales.deuda - VariablesGlobales.ingreso;
-            Restante_blue.Content = "$" + VariablesGlobales.restante.ToString();
-            if (VariablesGlobales.restante <= 0)
-            {
-                Restante_blue.Content = "$0";
-            }
+            
+
         }
 
         private void Realcancelar_Click(object sender, RoutedEventArgs e)

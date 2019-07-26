@@ -59,6 +59,10 @@ namespace Cajero_automatico
 
         private void Pagar_Click(object sender, RoutedEventArgs e)
         {
+
+         
+           
+
             Payment subwindow = new Payment();
             subwindow.Show();
             this.Close();
