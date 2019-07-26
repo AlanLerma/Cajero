@@ -11,5 +11,9 @@ namespace Cajero_automatico
         public static string NumCuenta { get; set; }
         public static double ingreso { get; set; }
         public static double deuda { get; set; }
+
+        public static double restante { get; set; }
+
+        public static string usuario { get; set; }
     }
 }

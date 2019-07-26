@@ -6,22 +6,22 @@
         xmlns:local="clr-namespace:Cajero_automatico"
         mc:Ignorable="d"
         Title="Payment" Height="440" Width="622">
-    <Grid Margin="10,0,-39,-5">
+    <Grid Margin="0,0,0,2" HorizontalAlignment="Left" Width="612">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="633*"/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Deuda:" HorizontalAlignment="Center" Margin="35,36,495,0" VerticalAlignment="Top" FontSize="30" Height="50" Width="103"/>
-        <Label Content="Depositado:" HorizontalAlignment="Center" Margin="200,36,255,0"  VerticalAlignment="Top" FontSize="30" Width="178" Height="50" RenderTransformOrigin="0.697,0.5"/>
-        <Label Content="Restante:" HorizontalAlignment="Center" Margin="409,36,-60,0" VerticalAlignment="Top" FontSize="30" Width="294" Height="50" Grid.ColumnSpan="3"/>
-        <Button x:Name="cancelar" Content="&lt;Cancelar" HorizontalAlignment="Left" Margin="30,337,0,0" VerticalAlignment="Top" Width="144" Height="50" FontSize="25" Click="Cancelar_Click"/>
-        <Button x:Name="Abonar" Content="Abonar&gt;" HorizontalAlignment="Left" Margin="421,337,0,0" VerticalAlignment="Top" Width="144" Height="50" FontSize="25" Click="Cancelar_Click"/>
+        <Label Content="Deuda:" HorizontalAlignment="Center" Margin="35,36,472,0" VerticalAlignment="Top" FontSize="30" Height="50" Width="103"/>
+        <Label Content="Depositado:" HorizontalAlignment="Center" Margin="209,36,223,0"  VerticalAlignment="Top" FontSize="30" Width="178" Height="50" RenderTransformOrigin="0.697,0.5"/>
+        <Label Content="Restante:" HorizontalAlignment="Center" Margin="444,36,-126,0" VerticalAlignment="Top" FontSize="30" Width="294" Height="50" Grid.ColumnSpan="3"/>
+        <Button x:Name="cancelar" Content="&lt;Cancelar" HorizontalAlignment="Left" Margin="30,337,0,0" VerticalAlignment="Top" Width="144" Height="50" FontSize="25" Click="Realcancelar_Click"/>
+        <Button x:Name="Abonar" Content="Abonar&gt;" HorizontalAlignment="Left" Margin="435,337,0,0" VerticalAlignment="Top" Width="144" Height="50" FontSize="25" Click="Cancelar_Click"/>
 
 
-        <Label x:Name="Depositado_blue" Content="Dep" Foreground="Blue" FontSize="25" HorizontalAlignment="Left" Margin="200,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.75,-0.442" Height="43" Width="55"/>
+        <Label x:Name="Depositado_blue" Content="Dep" Foreground="Blue" FontSize="25" HorizontalAlignment="Left" Margin="209,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.75,-0.442" Height="43" Width="157"/>
         <Label x:Name="Deuda_blue" Content="Deu" Foreground="Blue" FontSize="25" HorizontalAlignment="Left" Margin="35,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.75,-0.442" Height="43" Width="119"/>
-        <Label x:Name="Restante_blue" Content="Res" Foreground="Blue" FontSize="25" HorizontalAlignment="Left" Margin="405,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.75,-0.442" Height="43" Width="102"/>
+        <Label x:Name="Restante_blue" Content="Res" Foreground="Blue" FontSize="25" HorizontalAlignment="Left" Margin="444,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.75,-0.442" Height="43" Width="135"/>
 
 
         <Button x:Name="quin" Content="$500" HorizontalAlignment="Left" Margin="106,154,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click" Height="52"/>
@@ -32,7 +32,7 @@
 
 
 
-        <Button Margin="111,239,487,127" Click="Button_Click_1" Content="$10">
+        <Button Margin="111,239,456,127" Click="Button_Click_1" Content="$10">
             <Button.Template>
                 <ControlTemplate TargetType="Button" x:Name="diez">
                     <Grid>
@@ -47,7 +47,7 @@
         </Button>
 
 
-        <Button Margin="190,239,408,127" Click="Button_Click_2" Content="$5">
+        <Button Margin="190,239,377,127" Click="Button_Click_2" Content="$5">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid>
@@ -62,7 +62,7 @@
         </Button>
 
 
-        <Button Margin="267,238,331,128" Click="Button_Click_3" Content="$2">
+        <Button Margin="267,238,300,128" Click="Button_Click_3" Content="$2">
             <Button.Template>
                 <ControlTemplate TargetType="Button" >
                     <Grid>
@@ -77,7 +77,7 @@
         </Button>
 
 
-        <Button Margin="344,238,254,128" Click="Button_Click_4" Content="$1">
+        <Button Margin="344,238,223,128" Click="Button_Click_4" Content="$1">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid>
@@ -91,7 +91,7 @@
             </Button.Template>
         </Button>
 
-        <Button Margin="421,238,172,127" Click="Button_Click_5" Content="$0.50" RenderTransformOrigin="6.86,0.186">
+        <Button Margin="421,238,141,127" Click="Button_Click_5" Content="$0.50" RenderTransformOrigin="6.86,0.186">
             <Button.Template>
                 <ControlTemplate TargetType="Button" >
                     <Grid>

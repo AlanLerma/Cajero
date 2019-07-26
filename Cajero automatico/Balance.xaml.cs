@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -31,26 +34,20 @@ namespace Cajero_automatico
         {
             InitializeComponent();
 
+            var client = new RestClient("http://linkxenter.com:3000/");
+            var request = new RestRequest("account_balance", Method.GET);
+            request.AddParameter("token", "dfb11a11722164a4e98c2fdb86c48343");
+            request.AddParameter("account", VariablesGlobales.NumCuenta);
+            var content = client.Execute(request).Content;
 
-            cmd.CommandText = "select Customer, Debt from cliente where Account = " + VariablesGlobales.NumCuenta;
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Connection = conection;
+            var jobj = (JObject)JsonConvert.DeserializeObject(content.ToString());
+            string user = jobj.SelectToken("user").ToString();
+            string debt = jobj.SelectToken("debt").ToString();
+            VariablesGlobales.usuario = user;
 
-            conection.Open();
-            reader = cmd.ExecuteReader();
-
-            if (reader.Read()) {
-                string cliente = reader["Customer"].ToString();
-                string deuda = reader["Debt"].ToString();
-                cuenta_blue.Content = VariablesGlobales.NumCuenta;
-                deuda_blue.Content = "$" +deuda;
-                usuario_blue.Content = cliente;
-            }
-            conection.Close();
-
-          
-
-
+            cuenta_blue.Content = VariablesGlobales.NumCuenta;
+            deuda_blue.Content = "$" + debt;
+            usuario_blue.Content = user;
         }
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
@@ -68,3 +65,20 @@ namespace Cajero_automatico
         }
     }
 }
+
+
+
+//basura
+//cmd.CommandText = "select Customer, Debt from cliente where Account = " + VariablesGlobales.NumCuenta;
+//cmd.CommandType = System.Data.CommandType.Text;
+//cmd.Connection = conection;
+
+//conection.Open();
+//reader = cmd.ExecuteReader();
+
+//if (reader.Read()) {
+//    string cliente = reader["Customer"].ToString();
+//    string deuda = reader["Debt"].ToString();
+
+//}
+//conection.Close();

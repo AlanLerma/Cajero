@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -131,40 +132,67 @@ namespace Cajero_automatico
         private void Continuar_Click(object sender, RoutedEventArgs e)
         {
             VariablesGlobales.NumCuenta = textBox.Text;
-            String codigo = "";
-            
-                cmd.CommandText = "select ID from cliente where Account = @Cuenta";
-                cmd.Parameters.AddWithValue("@Cuenta", VariablesGlobales.NumCuenta);
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Connection = conection;
 
-                conection.Open();
-                reader = cmd.ExecuteReader();
-               
-                if (reader.Read())
-                {
-                    codigo = reader["ID"].ToString();
-                }
-                cmd.Parameters.Clear();
-                conection.Close();
+            //  GET 
            
-            
-          
+               var client = new RestClient("http://linkxenter.com:3000/");
+               var request = new RestRequest("account_balance", Method.GET);
+               request.AddParameter("token", "dfb11a11722164a4e98c2fdb86c48343");
+               request.AddParameter("account", VariablesGlobales.NumCuenta);
+               var content = client.Execute(request).Content;
 
-
-            if (codigo == null || codigo == "" || codigo == "None")
+            if (content.ToString() == "{'message': 'no existen datos del usuario.'}")
             {
-                MessageBox.Show("El número de cuenta no existe");
+                MessageBox.Show("usuario invalido");
+                textBox.Text = "";
             }
-            else {
+            else
+            {
                 Balance subwindow = new Balance();
                 subwindow.Show();
                 this.Close();
             }
-            //  
 
 
-            
+
+
+
+
         }
     }
 }
+
+
+
+
+
+//String codigo = "";
+
+//    cmd.CommandText = "select ID from cliente where Account = @Cuenta";
+//    cmd.Parameters.AddWithValue("@Cuenta", VariablesGlobales.NumCuenta);
+//    cmd.CommandType = System.Data.CommandType.Text;
+//    cmd.Connection = conection;
+
+//    conection.Open();
+//    reader = cmd.ExecuteReader();
+
+//    if (reader.Read())
+//    {
+//        codigo = reader["ID"].ToString();
+//    }
+//    cmd.Parameters.Clear();
+//    conection.Close();
+
+
+
+
+
+//if (codigo == null || codigo == "" || codigo == "None")
+//{
+//    MessageBox.Show("El número de cuenta no existe");
+//}
+//else {
+//    Balance subwindow = new Balance();
+//    subwindow.Show();
+//    this.Close();
+//}
